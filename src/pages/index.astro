@@ -1,18 +1,59 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import '@/styles/globals.css';
+import { Button } from "@/components/ui/button"
+import { Card } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import ThemeToggle from "../components/ui/themeToggle";
 ---
 
 <Layout title="Welcome to SpawnPoint.">
-	<main>
-        <h1 class="text-sm">SpawnPoint</h1>
-        <h1 class="text-base">SpawnPoint</h1>
-        <h1 class="text-xl">SpawnPoint</h1>
-        <h1 class="text-2xl">SpawnPoint</h1>
-        <h1 class="text-3xl">SpawnPoint</h1>
-        <h1 class="text-4xl">SpawnPoint</h1>
-        <h1 class="text-5xl">SpawnPoint</h1>
-	</main>
+    <main class="bg-gray-900 text-white">
+        <header class="py-5 bg-gray-800 text-center">
+            <h1 class="text-4xl font-bold">SpawnPoint</h1>
+            <p class="text-lg mt-2">Encuentra los mejores juegos al mejor precio</p>
+            <ThemeToggle />
+        </header>
+
+        <section class="flex justify-center mt-8">
+            <Input placeholder="Buscar juegos..." className="w-1/2" />
+            <Button className="ml-4">Buscar</Button>
+        </section>
+
+        <section class="mt-12 px-8">
+            <h2 class="text-3xl font-semibold mb-6">Juegos Destacados</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <Card className="p-4 bg-gray-700">
+                    <h3 class="text-xl">Juego 1</h3>
+                    <p>Descripción breve del juego.</p>
+                    <Button className="mt-4">Ver más</Button>
+                </Card>
+                <Card className="p-4 bg-gray-700">
+                    <h3 class="text-xl">Juego 2</h3>
+                    <p>Descripción breve del juego.</p>
+                    <Button className="mt-4">Ver más</Button>
+                </Card>
+                <!-- Agrega más tarjetas según sea necesario -->
+            </div>
+        </section>
+
+        <section class="mt-12 px-8">
+            <h2 class="text-3xl font-semibold mb-6">Categorías Populares</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <Card className="p-4 bg-gray-700">
+                    <h3 class="text-xl">Acción</h3>
+                </Card>
+                <Card className="p-4 bg-gray-700">
+                    <h3 class="text-xl">Aventura</h3>
+                </Card>
+                <!-- Agrega más categorías según sea necesario -->
+            </div>
+        </section>
+
+        <footer class="py-5 bg-gray-800 text-center mt-12">
+            <p>&copy; 2024 SpawnPoint. Todos los derechos reservados.</p>
+        </footer>
+    </main>
 </Layout>
 
 <style>
