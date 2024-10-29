@@ -2,87 +2,38 @@
 import Layout from '../layouts/Layout.astro';
 import '@/styles/globals.css';
 import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
-
-const platforms = ['PlayStation', 'Xbox', 'PC', 'Nintendo'];
+import Badges from "../components/Badges.astro";
+import Card from "../components/Card.astro";
+import { recommendedGames, upcomingReleases, topRatedGames } from "../components/data/games";
+import Navbar from "../components/Navbar.astro";
 ---
 
 <Layout title="Welcome to SpawnPoint.">
-    <main class="bg-indigo-950 text-white">
-        <Header />
+    <main class="bg-neutral-900 text-white">
+        <Navbar />
         <section class="flex justify-center mt-8">
             <Input placeholder="Buscar juegos..." className="w-1/2" />
             <Button className="ml-4">Buscar</Button>
         </section>
 
-        <section class="flex justify-center mt-8">
-            <div class="flex gap-2">
-                {platforms.map(platform => (
-                        <span class="badge bg-blue-500 text-white px-3 py-1 rounded-full">
-                        {platform}
-                    </span>
-                ))}
-            </div>
+        <Badges/>
+
+        <section class="mt-12 px-8">
+            <h2 class="text-3xl font-semibold mb-6 hover:text-slate-500 cursor-pointer">Juegos Recomendados</h2>
+            <Card games={recommendedGames} />
         </section>
 
         <section class="mt-12 px-8">
-            <h2 class="text-3xl font-semibold mb-6">Juegos Destacados</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <Card className="p-4 bg-gray-700">
-                    <h3 class="text-xl">Juego 1</h3>
-                    <p>Descripción breve del juego.</p>
-                    <Button className="mt-4">Ver más</Button>
-                </Card>
-                <Card className="p-4 bg-gray-700">
-                    <h3 class="text-xl">Juego 2</h3>
-                    <p>Descripción breve del juego.</p>
-                    <Button className="mt-4">Ver más</Button>
-                </Card>
-                <Card className="p-4 bg-gray-700">
-                    <h3 class="text-xl">Juego 3</h3>
-                    <p>Descripción breve del juego.</p>
-                    <Button className="mt-4">Ver más</Button>
-                </Card>
-                <Card className="p-4 bg-gray-700">
-                    <h3 class="text-xl">Juego 4</h3>
-                    <p>Descripción breve del juego.</p>
-                    <Button className="mt-4">Ver más</Button>
-                </Card>
-                <Card className="p-4 bg-gray-700">
-                    <h3 class="text-xl">Juego 4</h3>
-                    <p>Descripción breve del juego.</p>
-                    <Button className="mt-4">Ver más</Button>
-                </Card>
-                <Card className="p-4 bg-gray-700">
-                    <h3 class="text-xl">Juego 4</h3>
-                    <p>Descripción breve del juego.</p>
-                    <Button className="mt-4">Ver más</Button>
-                </Card>
-            </div>
+            <h2 class="text-3xl font-semibold mb-6 hover:text-slate-500 cursor-pointer">Próximos Lanzamientos</h2>
+            <Card games={upcomingReleases} />
         </section>
 
         <section class="mt-12 px-8">
-            <h2 class="text-3xl font-semibold mb-6">Categorías Populares</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <Card className="p-3 bg-gray-700">
-                    <h3 class="text-xl">Acción</h3>
-                </Card>
-                <Card className="p-3 bg-gray-700">
-                    <h3 class="text-xl">Aventura</h3>
-                </Card>
-                <Card className="p-3 bg-gray-700">
-                    <h3 class="text-xl">Deportes</h3>
-                </Card>
-                <Card className="p-3 bg-gray-700">
-                    <h3 class="text-xl">Estrategia</h3>
-                </Card>
-            </div>
+            <h2 class="text-3xl font-semibold mb-6 hover:text-slate-500 cursor-pointer">Juegos Mejor Calificados</h2>
+            <Card games={topRatedGames} />
         </section>
-
-
 
         <Footer />
     </main>

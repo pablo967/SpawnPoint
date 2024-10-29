@@ -1,4 +1,19 @@
+---
+import { Game } from "../data/games";
+const { games } = Astro.props;
+import '@/styles/globals.css';
+---
 
-<style>
-
-</style>
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
+    {games.map((game: Game) => (
+            <a href={`/game/${game.id}`} class="block">
+                <div class="game-card rounded-xl border border-gray-700 bg-slate-50 text-white shadow-lg p-4 relative transition-transform transform hover:scale-105 hover:border-gray-400" key={game.id}>
+                    <img src={game.image} alt={game.title} class="w-full h-48 object-cover rounded-t-lg cursor-pointer shadow-md" />
+                    <div class="p-4">
+                        <h3 class="font-semibold leading-none tracking-tight text-xl mt-4 text-black">{game.title}</h3>
+                        <p class="text-lg text-blue-400">{game.price} €</p>
+                    </div>
+                </div>
+            </a>
+    ))}
+</div>
