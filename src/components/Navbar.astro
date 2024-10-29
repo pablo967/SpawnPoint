@@ -1,0 +1,37 @@
+---
+import ShoppingCart from 'astro-heroicons/solid/ShoppingCart.astro';
+import UserCircle from 'astro-heroicons/solid/UserCircle.astro';
+import ComputerDesktop from 'astro-heroicons/solid/ComputerDesktop.astro';
+
+const platforms = [
+  { name: 'PC', icon: ComputerDesktop },
+  { name: 'PlayStation', icon: '/src/components/icons/playstationLight.png' },
+  { name: 'Xbox', icon: '/src/components/icons/xboxLight.png' },
+  { name: 'Nintendo', icon: '/src/components/icons/switchLight.png' }
+];
+---
+
+<nav class="flex flex-wrap items-center justify-between pl-8 pr-8 pt-4 pb-4 bg-neutral-900 text-white">
+    <div class="flex items-center space-x-2">
+        <img src="/src/components/icons/logo.png" alt="Logo de SpawnPoint" class="h-8 w-8" />
+        <a href="/" class="text-2xl font-bold">SpawnPoint</a>
+    </div>
+    <!-- Va en el index.astro
+    <div class="flex flex-wrap justify-center space-x-8 mt-4 md:mt-0">
+    {platforms.map(platform => (
+            <a href={`/${platform.name.toLowerCase()}`} class="flex items-center space-x-2">
+                {platform.name === 'PC' ? (
+                    <platform.icon class="h-6 w-6" />
+                ) : (
+                    <img src={platform.icon} alt={platform.name} class="h-6 w-6" />
+                )}
+                <span>{platform.name}</span>
+            </a>
+        ))}
+    </div>
+    -->
+    <div class="flex flex-wrap justify-center space-x-8 mt-4 md:mt-0">
+        <a href="/cart" class="text-xl" aria-label="Carrito de la compra"><ShoppingCart class="h-6 w-6" /></a>
+        <a href="/perfil" class="text-xl" aria-label="Mi usuario"><UserCircle class="h-6 w-6" /></a>
+    </div>
+</nav>
