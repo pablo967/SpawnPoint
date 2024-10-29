@@ -4,20 +4,28 @@ import '@/styles/globals.css';
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
-import ThemeToggle from "../components/ui/themeToggle";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+
+const platforms = ['PlayStation', 'Xbox', 'PC', 'Nintendo'];
 ---
 
 <Layout title="Welcome to SpawnPoint.">
-    <main class="bg-gray-900 text-white">
-        <header class="py-5 bg-gray-800 text-center">
-            <h1 class="text-4xl font-bold">SpawnPoint</h1>
-            <p class="text-lg mt-2">Encuentra los mejores juegos al mejor precio</p>
-            <ThemeToggle />
-        </header>
-
+    <main class="bg-indigo-950 text-white">
+        <Header />
         <section class="flex justify-center mt-8">
             <Input placeholder="Buscar juegos..." className="w-1/2" />
             <Button className="ml-4">Buscar</Button>
+        </section>
+
+        <section class="flex justify-center mt-8">
+            <div class="flex gap-2">
+                {platforms.map(platform => (
+                        <span class="badge bg-blue-500 text-white px-3 py-1 rounded-full">
+                        {platform}
+                    </span>
+                ))}
+            </div>
         </section>
 
         <section class="mt-12 px-8">
@@ -33,29 +41,49 @@ import ThemeToggle from "../components/ui/themeToggle";
                     <p>Descripción breve del juego.</p>
                     <Button className="mt-4">Ver más</Button>
                 </Card>
-                <!-- Agrega más tarjetas según sea necesario -->
+                <Card className="p-4 bg-gray-700">
+                    <h3 class="text-xl">Juego 3</h3>
+                    <p>Descripción breve del juego.</p>
+                    <Button className="mt-4">Ver más</Button>
+                </Card>
+                <Card className="p-4 bg-gray-700">
+                    <h3 class="text-xl">Juego 4</h3>
+                    <p>Descripción breve del juego.</p>
+                    <Button className="mt-4">Ver más</Button>
+                </Card>
+                <Card className="p-4 bg-gray-700">
+                    <h3 class="text-xl">Juego 4</h3>
+                    <p>Descripción breve del juego.</p>
+                    <Button className="mt-4">Ver más</Button>
+                </Card>
+                <Card className="p-4 bg-gray-700">
+                    <h3 class="text-xl">Juego 4</h3>
+                    <p>Descripción breve del juego.</p>
+                    <Button className="mt-4">Ver más</Button>
+                </Card>
             </div>
         </section>
 
         <section class="mt-12 px-8">
             <h2 class="text-3xl font-semibold mb-6">Categorías Populares</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <Card className="p-4 bg-gray-700">
+                <Card className="p-3 bg-gray-700">
                     <h3 class="text-xl">Acción</h3>
                 </Card>
-                <Card className="p-4 bg-gray-700">
+                <Card className="p-3 bg-gray-700">
                     <h3 class="text-xl">Aventura</h3>
                 </Card>
-                <!-- Agrega más categorías según sea necesario -->
+                <Card className="p-3 bg-gray-700">
+                    <h3 class="text-xl">Deportes</h3>
+                </Card>
+                <Card className="p-3 bg-gray-700">
+                    <h3 class="text-xl">Estrategia</h3>
+                </Card>
             </div>
         </section>
 
-        <footer class="py-5 bg-gray-800 text-center mt-12">
-            <p>&copy; 2024 SpawnPoint. Todos los derechos reservados.</p>
-        </footer>
+
+
+        <Footer />
     </main>
 </Layout>
-
-<style>
-
-</style>
