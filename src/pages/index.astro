@@ -4,10 +4,17 @@ import '@/styles/globals.css';
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import Footer from "../components/Footer.astro";
-import Badges from "../components/Badges.astro";
 import Card from "../components/Card.astro";
 import { recommendedGames, upcomingReleases, topRatedGames } from "../components/data/games";
 import Navbar from "../components/Navbar.astro";
+import ComputerDesktop from 'astro-heroicons/solid/ComputerDesktop.astro';
+
+const platforms = [
+    { name: 'PC', icon: ComputerDesktop },
+    { name: 'PlayStation', icon: '/src/components/icons/playstationDark.png' },
+    { name: 'Xbox', icon: '/src/components/icons/xboxDark.png' },
+    { name: 'Nintendo', icon: '/src/components/icons/switchDark.png' }
+];
 ---
 
 <Layout title="Welcome to SpawnPoint.">
@@ -15,23 +22,36 @@ import Navbar from "../components/Navbar.astro";
         <Navbar />
         <section class="flex justify-center mt-8">
             <Input placeholder="Buscar juegos..." className="w-1/2" />
-            <Button className="ml-4 bg-slate-50 text-black">Buscar</Button>
+            <Button className="ml-4 bg-slate-50 text-black hover:bg-slate-200">Buscar</Button>
         </section>
 
-        <Badges/>
+        <div class="flex flex-wrap justify-center space-x-8 mt-12 md:mt-8">
+            {platforms.map(platform => (
+                    <a href={`/${platform.name.toLowerCase()}`} class="flex items-center space-x-2">
+                        <button class="flex items-center space-x-2 bg-slate-50 text-black py-2 px-4 rounded-lg hover:bg-slate-200">
+                            {platform.name === 'PC' ? (
+                                    <platform.icon class="h-6 w-6" />
+                            ) : (
+                                    <img src={platform.icon} alt={platform.name} class="h-6 w-6" />
+                            )}
+                            <span>{platform.name}</span>
+                        </button>
+                    </a>
+            ))}
+        </div>
 
         <section class="mt-12 px-8">
-            <h2 class="text-3xl font-semibold mb-6 hover:text-slate-300 cursor-pointer">Juegos Recomendados</h2>
+            <h2 class="text-3xl font-semibold mb-6 hover:text-slate-200 cursor-pointer">Juegos Recomendados</h2>
             <Card games={recommendedGames} />
         </section>
 
         <section class="mt-12 px-8">
-            <h2 class="text-3xl font-semibold mb-6 hover:text-slate-300 cursor-pointer">Próximos Lanzamientos</h2>
+            <h2 class="text-3xl font-semibold mb-6 hover:text-slate-200 cursor-pointer">Próximos Lanzamientos</h2>
             <Card games={upcomingReleases} />
         </section>
 
         <section class="mt-12 px-8">
-            <h2 class="text-3xl font-semibold mb-6 hover:text-slate-300 cursor-pointer">Juegos Mejor Calificados</h2>
+            <h2 class="text-3xl font-semibold mb-6 hover:text-slate-200 cursor-pointer">Juegos Mejor Calificados</h2>
             <Card games={topRatedGames} />
         </section>
 
