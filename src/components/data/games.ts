@@ -15,7 +15,7 @@ export function getGameById(id: number): Game | undefined {
 }
 
 export const recommendedGames: Game[] = [
-    { id: 1, title: 'Monster Hunter: World - Iceborne Master Edition', description: 'Aventura épica de caza en un vasto mundo abierto lleno de desafíos.', platforms: ['PlayStation', 'PC'], price: 49.99, image: "/images/monster.jpg" },
+    { id: 1, title: 'Monster Hunter: World', description: 'Aventura épica de caza en un vasto mundo abierto lleno de desafíos.', platforms: ['PlayStation', 'PC'], price: 49.99, image: "/images/monster.jpg" },
     { id: 2, title: 'Metaphor: ReFantazio', description: 'Un juego de rol y fantasía con un impresionante mundo de diseño único.', platforms: ['Xbox'], price: 59.99, image: "/images/meta.jpg" },
     { id: 3, title: 'Darksiders Genesis', description: 'Acción intensa en un universo postapocalíptico, controlando a dos jinetes del apocalipsis.', platforms: ['Nintendo', 'PC'], price: 39.99, image: "/images/dark.jpg" },
     { id: 4, title: 'Murky Divers', description: 'Explora el misterioso mundo submarino y descubre sus secretos.', platforms: ['PlayStation', 'Xbox'], price: 29.99, image: "/images/Murky Divers.jpg" },
